@@ -9,14 +9,33 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "file:../material-ui/packages/mui-material/build",
+    "@mui/zero-runtime": "file:../material-ui/packages/zero-runtime",
+    "@mui/zero-styled": "file:../material-ui/packages/mui-zero-styled/build",
+    "next": "14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18"
+    "@mui/zero-next-plugin": "file:../material-ui/packages/zero-next-plugin",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.47",
+    "@types/react-dom": "^18.2.18",
+    "typescript": "^5.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@mui/base": "file:../material-ui/packages/mui-base/build",
+      "@mui/core-downloads-tracker": "file:../material-ui/packages/mui-core-downloads-tracker/build",
+      "@mui/private-theming": "file:../material-ui/packages/mui-private-theming/build",
+      "@mui/styled-engine": "file:../material-ui/packages/mui-styled-engine/build",
+      "@mui/system": "file:../material-ui/packages/mui-system/build",
+      "@mui/types": "file:../material-ui/packages/mui-types/build",
+      "@mui/utils": "file:../material-ui/packages/mui-utils/build",
+      "@mui/zero-styled": "file:../material-ui/packages/mui-zero-styled/build",
+      "@mui/zero-unplugin": "file:../material-ui/packages/zero-unplugin"
+    }
   }
 }
