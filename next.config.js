@@ -10,6 +10,9 @@ const theme = extendTheme({
   cssVarPrefix: "app",
   components: {
     MuiBadge: {
+      defaultProps: {
+        color: "primary",
+      },
       styleOverrides: {
         root: ({ theme }) => ({
           position: "absolute",

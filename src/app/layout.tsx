@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { css } from "@mui/zero-runtime";
 import "@mui/zero-runtime/styles.css";
 import "./globals.css";
 
@@ -17,12 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={css({
-        color: "red",
-      })}
-    >
+    <html lang="en">
       <body className={inter.className}>{children}</body>
     </html>
   );
