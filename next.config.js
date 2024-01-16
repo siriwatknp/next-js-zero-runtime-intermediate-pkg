@@ -8,6 +8,19 @@ const nextConfig = {};
 
 const theme = extendTheme({
   cssVarPrefix: "app",
+  components: {
+    MuiBadge: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          position: "absolute",
+          backgroundColor: (theme.vars || theme).palette.primary.main,
+        }),
+        badge: {
+          display: "block",
+        },
+      },
+    },
+  },
 });
 
 module.exports = withZeroPlugin(nextConfig, {

@@ -13,7 +13,6 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "file:../material-ui/packages/mui-material/build",
     "@mui/zero-runtime": "file:../material-ui/packages/zero-runtime",
-    "@mui/zero-styled": "file:../material-ui/packages/mui-zero-styled/build",
     "next": "14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

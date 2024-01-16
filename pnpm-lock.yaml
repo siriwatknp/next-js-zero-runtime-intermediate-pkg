@@ -28,9 +28,6 @@ dependencies:
   '@mui/zero-runtime':
     specifier: file:../material-ui/packages/zero-runtime
     version: file:../material-ui/packages/zero-runtime(@emotion/react@11.11.3)(@types/react@18.2.47)(react@18.2.0)
-  '@mui/zero-styled':
-    specifier: file:/Users/brijesh/projects/mui/material-ui/packages/mui-zero-styled/build
-    version: file:../material-ui/packages/mui-zero-styled/build(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.47)(react@18.2.0)
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.23.7)(react-dom@18.2.0)(react@18.2.0)
@@ -2044,6 +2041,9 @@ packages:
   /lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
 
+  /lodash.merge@4.6.2:
+    resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+
   /lodash.set@4.3.2:
     resolution: {integrity: sha512-4hNPN5jlm/N/HLMCO43v8BXKq9Z7QdAGc/VGrRD61w8gN9g/6jF9A4L1pbUgBLCffi0w9VsXfTOij5x8iTyFvg==}
 
@@ -2686,6 +2686,7 @@ packages:
       cssesc: 3.0.0
       csstype: 3.1.3
       lodash.get: 4.4.2
+      lodash.merge: 4.6.2
       lodash.set: 4.3.2
       react: 18.2.0
       stylis: 4.2.0
