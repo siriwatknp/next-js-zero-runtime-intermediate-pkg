@@ -9,13 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/cache": "11.11.0",
     "@emotion/react": "^11.11.3",
+    "@emotion/server": "11.11.0",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "file:../material-ui/packages/mui-icons-material/build",
+    "@mui/markdown": "file:../material-ui/packages/markdown",
     "@mui/material": "file:../material-ui/packages/mui-material/build",
+    "@mui/material-nextjs": "5.15.6",
+    "@mui/system": "file:../material-ui/packages/mui-system/build",
+    "@mui/utils": "file:../material-ui/packages/mui-utils/build",
     "@mui/zero-runtime": "file:../material-ui/packages/zero-runtime",
+    "clipboard-copy": "4.0.1",
+    "clsx": "2.1.0",
     "next": "14.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "9.5.3"
   },
   "devDependencies": {
     "@mui/zero-next-plugin": "file:../material-ui/packages/zero-next-plugin",

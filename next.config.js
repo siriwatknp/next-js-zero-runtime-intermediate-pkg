@@ -4,7 +4,9 @@ const {
 const { withZeroPlugin } = require("@mui/zero-next-plugin");
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  output: "export",
+};
 
 const theme = extendTheme({
   cssVarPrefix: "app",
@@ -26,8 +28,10 @@ const theme = extendTheme({
   },
 });
 
-module.exports = withZeroPlugin(nextConfig, {
-  theme,
-  cssVariablesPrefix: "app",
-  transformLibraries: ["@mui/material"],
-});
+// module.exports = withZeroPlugin(nextConfig, {
+//   theme,
+//   cssVariablesPrefix: "app",
+//   transformLibraries: ["@mui/material"],
+// });
+
+module.exports = nextConfig;
