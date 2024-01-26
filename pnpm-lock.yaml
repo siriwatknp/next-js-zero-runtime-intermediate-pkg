@@ -12,7 +12,6 @@ overrides:
   '@mui/system': file:../material-ui/packages/mui-system/build
   '@mui/types': file:../material-ui/packages/mui-types/build
   '@mui/utils': file:../material-ui/packages/mui-utils/build
-  '@mui/zero-styled': file:../material-ui/packages/mui-zero-styled/build
   '@mui/zero-unplugin': file:../material-ui/packages/zero-unplugin
 
 dependencies:
@@ -2760,7 +2759,6 @@ packages:
       '@mui/system': file:../material-ui/packages/mui-system/build(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.47)(react@18.2.0)
       '@mui/types': file:../material-ui/packages/mui-types/build(@types/react@18.2.47)
       '@mui/utils': file:../material-ui/packages/mui-utils/build(@types/react@18.2.47)(react@18.2.0)
-      '@mui/zero-styled': file:../material-ui/packages/mui-zero-styled/build(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.47)(react@18.2.0)
       '@types/react': 18.2.47
       '@types/react-transition-group': 4.4.10
       clsx: 2.1.0
@@ -2874,20 +2872,6 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
-
-  file:../material-ui/packages/mui-zero-styled/build(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.47)(react@18.2.0):
-    resolution: {directory: ../material-ui/packages/mui-zero-styled/build, type: directory}
-    id: file:../material-ui/packages/mui-zero-styled/build
-    name: '@mui/zero-styled'
-    engines: {node: '>=12.0.0'}
-    dependencies:
-      '@mui/system': file:../material-ui/packages/mui-system/build(@emotion/react@11.11.3)(@emotion/styled@11.11.0)(@types/react@18.2.47)(react@18.2.0)
-    transitivePeerDependencies:
-      - '@emotion/react'
-      - '@emotion/styled'
-      - '@types/react'
-      - react
-    dev: false
 
   file:../material-ui/packages/zero-next-plugin(@mui/zero-runtime@0.0.1)(next@14.0.4)(typescript@5.3.3):
     resolution: {directory: ../material-ui/packages/zero-next-plugin, type: directory}

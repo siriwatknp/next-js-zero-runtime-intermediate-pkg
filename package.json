@@ -43,7 +43,6 @@
       "@mui/system": "file:../material-ui/packages/mui-system/build",
       "@mui/types": "file:../material-ui/packages/mui-types/build",
       "@mui/utils": "file:../material-ui/packages/mui-utils/build",
-      "@mui/zero-styled": "file:../material-ui/packages/mui-zero-styled/build",
       "@mui/zero-unplugin": "file:../material-ui/packages/zero-unplugin"
     }
   }
