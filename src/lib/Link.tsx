@@ -1,6 +1,7 @@
+"use client";
 import * as React from "react";
 import clsx from "clsx";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import NextLink, { LinkProps as NextLinkProps } from "next/link";
 import MuiLink, { LinkProps as MuiLinkProps } from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
@@ -93,7 +94,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
 
   const router = useRouter();
   const pathname = typeof href === "string" ? href : href?.pathname;
-  const routerPathname = router.pathname.replace("/[docsTab]", "");
+  const routerPathname = router.pathname?.replace("/[docsTab]", "");
 
   const shouldBeActive = routerPathname === pathname;
 

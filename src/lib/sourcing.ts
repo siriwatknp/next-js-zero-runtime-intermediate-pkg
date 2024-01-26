@@ -41,7 +41,7 @@ const ALLOWED_TAGS = [
   "Product",
 ];
 
-export const getAllBlogPosts = () => {
+export const getAllBlogPosts = async () => {
   const filePaths = getBlogFilePaths();
   const rawBlogPosts = filePaths
     .map((name) => getBlogPost(name))
@@ -69,8 +69,8 @@ export const getAllBlogPosts = () => {
     });
   });
 
-  return {
+  return Promise.resolve({
     allBlogPosts, // posts with at least a title
     tagInfo,
-  };
+  });
 };

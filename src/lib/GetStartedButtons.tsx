@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import copy from "clipboard-copy";
 import Box, { BoxProps } from "@mui/material/Box";

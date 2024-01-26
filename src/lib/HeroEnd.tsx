@@ -1,3 +1,4 @@
+"use client";
 import * as React from "react";
 import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";

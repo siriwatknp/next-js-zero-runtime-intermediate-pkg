@@ -1,6 +1,7 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+"use client";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 interface SectionHeadlineProps {
   description?: React.ReactNode;
@@ -15,9 +16,16 @@ interface SectionHeadlineProps {
 }
 
 export default function SectionHeadline(props: SectionHeadlineProps) {
-  const { description, id, overline, title, alwaysCenter = false, inverted = false } = props;
+  const {
+    description,
+    id,
+    overline,
+    title,
+    alwaysCenter = false,
+    inverted = false,
+  } = props;
   return (
-    <Box sx={{ maxWidth: 500, m: alwaysCenter ? 'auto' : 'none' }}>
+    <Box sx={{ maxWidth: 500, m: alwaysCenter ? "auto" : "none" }}>
       {overline && (
         <Typography
           id={id}
@@ -28,29 +36,29 @@ export default function SectionHeadline(props: SectionHeadlineProps) {
           sx={{
             mb: 1,
             ...(alwaysCenter && {
-              textAlign: 'center',
+              textAlign: "center",
             }),
           }}
         >
           {overline}
         </Typography>
       )}
-      {typeof title === 'string' ? (
+      {typeof title === "string" ? (
         <Typography
           variant="h2"
           sx={(theme) => ({
             ...(inverted
               ? {
-                  color: '#fff',
+                  color: "#fff",
                 }
               : {
-                  color: 'primaryDark.900',
+                  color: "primaryDark.900",
                   ...theme.applyDarkStyles({
-                    color: 'grey.100',
+                    color: "grey.100",
                   }),
                 }),
             ...(alwaysCenter && {
-              textAlign: 'center',
+              textAlign: "center",
             }),
           })}
         >
@@ -60,10 +68,10 @@ export default function SectionHeadline(props: SectionHeadlineProps) {
         React.cloneElement(title, {
           style: {
             ...(alwaysCenter && {
-              textAlign: 'center',
+              textAlign: "center",
             }),
             ...(inverted && {
-              color: '#fff',
+              color: "#fff",
             }),
           },
         })
@@ -76,17 +84,17 @@ export default function SectionHeadline(props: SectionHeadlineProps) {
             maxWidth: 450,
             ...(inverted
               ? {
-                  color: 'grey.400',
+                  color: "grey.400",
                 }
               : {
-                  color: 'grey.800',
+                  color: "grey.800",
                   ...theme.applyDarkStyles({
-                    color: 'grey.500',
+                    color: "grey.500",
                   }),
                 }),
             ...(alwaysCenter && {
-              textAlign: 'center',
-              mx: 'auto',
+              textAlign: "center",
+              mx: "auto",
               maxWidth: 600,
             }),
           })}

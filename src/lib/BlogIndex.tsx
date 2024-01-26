@@ -1,6 +1,6 @@
+"use client";
 import * as React from "react";
-import { InferGetStaticPropsType } from "next";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { alpha } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
@@ -29,14 +29,6 @@ import Link from "@/lib/Link";
 // import generateRssFeed from "docs/scripts/generateRSSFeed";
 import Section from "@/lib/Section";
 import { getAllBlogPosts, BlogPost } from "@/lib/sourcing";
-
-export const getStaticProps = () => {
-  const data = getAllBlogPosts();
-  // generateRssFeed(data.allBlogPosts);
-  return {
-    props: data,
-  };
-};
 
 export const AUTHORS = {
   oliviertassinari: {
@@ -289,7 +281,7 @@ function PostPreview(props: BlogPost) {
 const PAGE_SIZE = 5;
 
 export default function Blog(
-  props: InferGetStaticPropsType<typeof getStaticProps>
+  props: Awaited<ReturnType<typeof getAllBlogPosts>>
 ) {
   const router = useRouter();
   const postListRef = React.useRef<HTMLDivElement | null>(null);
@@ -325,7 +317,7 @@ export default function Blog(
   const totalPage = Math.ceil(filteredPosts.length / PAGE_SIZE);
   const displayedPosts = filteredPosts.slice(pageStart, pageStart + PAGE_SIZE);
   const getTags = React.useCallback(() => {
-    const { tags = "" } = router.query;
+    const { tags = "" } = router.query || {};
     return (typeof tags === "string" ? tags.split(",") : tags || [])
       .map((str) => str.trim())
       .filter((tag) => !!tag);
