@@ -291,6 +291,8 @@ export default function Blog(
   >({});
   const { allBlogPosts, tagInfo: rawTagInfo } = props;
   const [firstPost, secondPost, ...otherPosts] = allBlogPosts;
+  console.log(firstPost);
+  console.log(secondPost);
   const tagInfo = { ...rawTagInfo };
   [firstPost, secondPost].forEach((post) => {
     post.tags.forEach((tag) => {
