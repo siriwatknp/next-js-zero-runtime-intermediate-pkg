@@ -335,74 +335,70 @@ function getThemedComponents() {
           disableElevation: true,
         },
       },
-      // MuiIconButton: {
-      //   variants: [
-      //     {
-      //       props: { color: "primary" },
-      //       style: ({ theme }) => [
-      //         {
-      //           height: 34,
-      //           width: 34,
-      //           border: `1px solid`,
-      //           borderColor: (theme.vars || theme).palette.grey[200],
-      //           color: (theme.vars || theme).palette.primary[500],
-      //           borderRadius: theme.shape.borderRadius,
-      //           boxShadow: `inset 0 1px 2px ${
-      //             (theme.vars || theme).palette.grey[50]
-      //           }, 0 1px 0.5px ${alpha(theme.palette.grey[100], 0.6)}`,
-      //           "&:hover": {
-      //             borderColor: (theme.vars || theme).palette.grey[300],
-      //             background: (theme.vars || theme).palette.grey[50],
-      //           },
-      //         },
-      //         theme.applyDarkStyles({
-      //           borderColor: (theme.vars || theme).palette.primaryDark[700],
-      //           color: (theme.vars || theme).palette.primary[300],
-      //           boxShadow: `inset 0 1px 1px ${
-      //             (theme.vars || theme).palette.primaryDark[900]
-      //           }, 0 1px 0.5px ${(theme.vars || theme).palette.common.black}`,
-      //           "&:hover": {
-      //             borderColor: (theme.vars || theme).palette.primaryDark[600],
-      //             background: alpha(theme.palette.primaryDark[700], 0.4),
-      //           },
-      //         }),
-      //       ],
-      //     },
-      //     {
-      //       props: { color: "info" },
-      //       style: ({ theme }) => [
-      //         {
-      //           height: 34,
-      //           width: 34,
-      //           border: `1px solid`,
-      //           borderColor: (theme.vars || theme).palette.grey[200],
-      //           color: (theme.vars || theme).palette.grey[600],
-      //           borderRadius: theme.shape.borderRadius,
-      //           boxShadow: `inset 0 1px 2px ${
-      //             (theme.vars || theme).palette.grey[50]
-      //           }, 0 1px 0.5px ${alpha(theme.palette.grey[100], 0.6)}`,
-      //           "&:hover": {
-      //             color: (theme.vars || theme).palette.primary.main,
-      //             borderColor: (theme.vars || theme).palette.grey[300],
-      //             background: (theme.vars || theme).palette.grey[50],
-      //           },
-      //         },
-      //         theme.applyDarkStyles({
-      //           borderColor: (theme.vars || theme).palette.primaryDark[700],
-      //           color: (theme.vars || theme).palette.grey[400],
-      //           boxShadow: `inset 0 1px 1px ${
-      //             (theme.vars || theme).palette.primaryDark[900]
-      //           }, 0 1px 0.5px ${(theme.vars || theme).palette.common.black}`,
-      //           "&:hover": {
-      //             color: (theme.vars || theme).palette.primary[400],
-      //             borderColor: (theme.vars || theme).palette.primaryDark[600],
-      //             background: alpha(theme.palette.primaryDark[700], 0.4),
-      //           },
-      //         }),
-      //       ],
-      //     },
-      //   ],
-      // },
+      MuiIconButton: {
+        variants: [
+          {
+            props: { color: "primary" },
+            style: ({ theme }) => ({
+              height: 34,
+              width: 34,
+              border: `1px solid`,
+              borderColor: (theme.vars || theme).palette.grey[200],
+              color: (theme.vars || theme).palette.primary[500],
+              borderRadius: theme.shape.borderRadius,
+              boxShadow: `inset 0 1px 2px ${
+                (theme.vars || theme).palette.grey[50]
+              }, 0 1px 0.5px ${alpha(theme.palette.grey[100], 0.6)}`,
+              "&:hover": {
+                borderColor: (theme.vars || theme).palette.grey[300],
+                background: (theme.vars || theme).palette.grey[50],
+              },
+              ...theme.applyDarkStyles({
+                borderColor: (theme.vars || theme).palette.primaryDark[700],
+                color: (theme.vars || theme).palette.primary[300],
+                boxShadow: `inset 0 1px 1px ${
+                  (theme.vars || theme).palette.primaryDark[900]
+                }, 0 1px 0.5px ${(theme.vars || theme).palette.common.black}`,
+                "&:hover": {
+                  borderColor: (theme.vars || theme).palette.primaryDark[600],
+                  background: alpha(theme.palette.primaryDark[700], 0.4),
+                },
+              }),
+            }),
+          },
+          {
+            props: { color: "info" },
+            style: ({ theme }) => ({
+              height: 34,
+              width: 34,
+              border: `1px solid`,
+              borderColor: (theme.vars || theme).palette.grey[200],
+              color: (theme.vars || theme).palette.grey[600],
+              borderRadius: theme.shape.borderRadius,
+              boxShadow: `inset 0 1px 2px ${
+                (theme.vars || theme).palette.grey[50]
+              }, 0 1px 0.5px ${alpha(theme.palette.grey[100], 0.6)}`,
+              "&:hover": {
+                color: (theme.vars || theme).palette.primary.main,
+                borderColor: (theme.vars || theme).palette.grey[300],
+                background: (theme.vars || theme).palette.grey[50],
+              },
+              ...theme.applyDarkStyles({
+                borderColor: (theme.vars || theme).palette.primaryDark[700],
+                color: (theme.vars || theme).palette.grey[400],
+                boxShadow: `inset 0 1px 1px ${
+                  (theme.vars || theme).palette.primaryDark[900]
+                }, 0 1px 0.5px ${(theme.vars || theme).palette.common.black}`,
+                "&:hover": {
+                  color: (theme.vars || theme).palette.primary[400],
+                  borderColor: (theme.vars || theme).palette.primaryDark[600],
+                  background: alpha(theme.palette.primaryDark[700], 0.4),
+                },
+              }),
+            }),
+          },
+        ],
+      },
       // MuiMenu: {
       //   styleOverrides: {
       //     paper: ({ theme }) => [
@@ -453,57 +449,55 @@ function getThemedComponents() {
       //     }),
       //   },
       // },
-      // MuiDivider: {
-      //   styleOverrides: {
-      //     root: ({ theme }) => ({
-      //       borderColor: (theme.vars || theme).palette.grey[100],
-      //       ...theme.applyDarkStyles({
-      //         borderColor: alpha(theme.palette.primaryDark[700], 0.8),
-      //       }),
-      //     }),
-      //   },
-      // },
-      // MuiLink: {
-      //   defaultProps: {
-      //     underline: "none",
-      //   },
-      //   styleOverrides: {
-      //     root: ({ theme }) => ({
-      //       fontWeight: 700,
-      //       display: "inline-flex",
-      //       alignItems: "center",
-      //       "&.MuiTypography-body1 > svg": {
-      //         marginTop: 2,
-      //       },
-      //       "& svg:last-child": {
-      //         marginLeft: 2,
-      //       },
-      //       "&:focus-visible": {
-      //         outline: `3px solid ${alpha(theme.palette.primary[500], 0.5)}`,
-      //         outlineOffset: "2px",
-      //       },
-      //     }),
-      //   },
-      //   variants: [
-      //     {
-      //       props: { color: "primary" },
-      //       style: ({ theme }) => [
-      //         {
-      //           color: (theme.vars || theme).palette.primary[600],
-      //           "&:hover": {
-      //             color: (theme.vars || theme).palette.primary[700],
-      //           },
-      //         },
-      //         theme.applyDarkStyles({
-      //           color: (theme.vars || theme).palette.primary[300],
-      //           "&:hover": {
-      //             color: (theme.vars || theme).palette.primary[200],
-      //           },
-      //         }),
-      //       ],
-      //     },
-      //   ],
-      // },
+      MuiDivider: {
+        styleOverrides: {
+          root: ({ theme }) => ({
+            borderColor: (theme.vars || theme).palette.grey[100],
+            ...theme.applyDarkStyles({
+              borderColor: alpha(theme.palette.primaryDark[700], 0.8),
+            }),
+          }),
+        },
+      },
+      MuiLink: {
+        defaultProps: {
+          underline: "none",
+        },
+        styleOverrides: {
+          root: ({ theme }) => ({
+            fontWeight: 700,
+            display: "inline-flex",
+            alignItems: "center",
+            "&.MuiTypography-body1 > svg": {
+              marginTop: 2,
+            },
+            "& svg:last-child": {
+              marginLeft: 2,
+            },
+            "&:focus-visible": {
+              outline: `3px solid ${alpha(theme.palette.primary[500], 0.5)}`,
+              outlineOffset: "2px",
+            },
+            variants: [
+              {
+                props: { color: "primary" },
+                style: {
+                  color: (theme.vars || theme).palette.primary[600],
+                  "&:hover": {
+                    color: (theme.vars || theme).palette.primary[700],
+                  },
+                  ...theme.applyDarkStyles({
+                    color: (theme.vars || theme).palette.primary[300],
+                    "&:hover": {
+                      color: (theme.vars || theme).palette.primary[200],
+                    },
+                  }),
+                },
+              },
+            ],
+          }),
+        },
+      },
       MuiChip: {
         styleOverrides: {
           root: ({ theme }) => ({
@@ -904,43 +898,37 @@ function getThemedComponents() {
       //     },
       //   },
       // },
-      // MuiPaginationItem: {
-      //   styleOverrides: {
-      //     root: ({ theme }) => [
-      //       {
-      //         textTransform: "none",
-      //         fontWeight: 700,
-      //         color: theme.palette.grey[700],
-      //         borderColor: theme.palette.grey[200],
-      //         "&.Mui-selected": {
-      //           color: (theme.vars || theme).palette.primary[500],
-      //           borderColor: `${
-      //             (theme.vars || theme).palette.primary[500]
-      //           } !important`,
-      //           backgroundColor: (theme.vars || theme).palette.primary[50],
-      //           "&:hover": {
-      //             backgroundColor: (theme.vars || theme).palette.primary[100],
-      //           },
-      //         },
-      //       },
-      //       theme.applyDarkStyles({
-      //         color: theme.palette.grey[300],
-      //         borderColor: theme.palette.primaryDark[500],
-      //         "&.Mui-selected": {
-      //           color: "#fff",
-      //           borderColor: `${
-      //             (theme.vars || theme).palette.primary[700]
-      //           } !important`,
-      //           backgroundColor: (theme.vars || theme).palette.primaryDark[700],
-      //           "&:hover": {
-      //             backgroundColor: (theme.vars || theme).palette
-      //               .primaryDark[600],
-      //           },
-      //         },
-      //       }),
-      //     ],
-      //   },
-      // },
+      MuiPaginationItem: {
+        styleOverrides: {
+          root: ({ theme }) => ({
+            textTransform: "none",
+            fontWeight: 700,
+            color: theme.palette.grey[700],
+            borderColor: theme.palette.grey[200],
+            "&.Mui-selected": {
+              color: (theme.vars || theme).palette.primary[500],
+              borderColor: `${(theme.vars || theme).palette.primary[500]}`,
+              backgroundColor: (theme.vars || theme).palette.primary[50],
+              "&:hover": {
+                backgroundColor: (theme.vars || theme).palette.primary[100],
+              },
+            },
+            ...theme.applyDarkStyles({
+              color: theme.palette.grey[300],
+              borderColor: theme.palette.primaryDark[500],
+              "&.Mui-selected": {
+                color: "#fff",
+                borderColor: `${(theme.vars || theme).palette.primary[700]}`,
+                backgroundColor: (theme.vars || theme).palette.primaryDark[700],
+                "&:hover": {
+                  backgroundColor: (theme.vars || theme).palette
+                    .primaryDark[600],
+                },
+              },
+            }),
+          }),
+        },
+      },
       // MuiCssBaseline: {
       //   defaultProps: {
       //     enableColorScheme: true,

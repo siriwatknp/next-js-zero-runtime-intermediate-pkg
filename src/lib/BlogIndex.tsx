@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import { css } from "@mui/zero-runtime";
 import { useRouter } from "next/navigation";
 import { alpha } from "@mui/material/styles";
 import Avatar from "@mui/material/Avatar";
@@ -127,8 +128,8 @@ function PostPreview(props: BlogPost) {
             key={tag}
             label={tag}
             size="small"
-            sx={[
-              (theme) => ({
+            className={css(
+              ({ theme }) => ({
                 fontWeight: 500,
                 color: (theme.vars || theme).palette.primary[600],
                 background: (theme.vars || theme).palette.primary[50],
@@ -138,7 +139,7 @@ function PostPreview(props: BlogPost) {
                   background: (theme.vars || theme).palette.primary[50],
                 },
               }),
-              (theme) =>
+              ({ theme }) =>
                 theme.applyDarkStyles({
                   color: (theme.vars || theme).palette.primary[100],
                   background: alpha(theme.palette.primary[900], 0.4),
@@ -146,8 +147,8 @@ function PostPreview(props: BlogPost) {
                   "&:hover": {
                     background: alpha(theme.palette.primary[900], 0.4),
                   },
-                }),
-            ]}
+                })
+            )}
           />
         ))}
       </Box>
@@ -155,45 +156,53 @@ function PostPreview(props: BlogPost) {
         component="h2"
         fontWeight="bold"
         variant="subtitle1"
-        sx={{
-          mb: 0.5,
-        }}
+        className={css(({ theme }) =>
+          theme.unstable_sx({
+            mb: 0.5,
+          })
+        )}
       >
         <Link
           aria-describedby={`describe-${props.slug}`}
           href={`/blog/${props.slug}`}
-          sx={{
-            color: "text.primary",
-            "&:hover": {
-              textDecoration: "underline",
-            },
-          }}
+          className={css(({ theme }) =>
+            theme.unstable_sx({
+              color: "text.primary",
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            })
+          )}
         >
           {props.title}
         </Link>
       </Typography>
-      <Typography color="text.secondary" sx={{ mb: "auto" }}>
+      <Typography
+        color="text.secondary"
+        className={css(({ theme }) => theme.unstable_sx({ mb: "auto" }))}
+      >
         {props.description}
       </Typography>
       {props.authors && (
         <AvatarGroup
-          sx={[
-            (theme) => ({
-              mt: 2,
-              mb: 1,
-              alignSelf: "flex-start",
-              "& .MuiAvatar-circular": {
-                width: 28,
-                height: 28,
-                border: 3,
-                borderColor: "#FFF",
-                backgroundColor: (theme.vars || theme).palette.grey[100],
-                color: (theme.vars || theme).palette.grey[800],
-                fontSize: theme.typography.pxToRem(13),
-                fontWeight: 500,
-              },
-            }),
-            (theme) =>
+          className={css(
+            ({ theme }) =>
+              theme.unstable_sx({
+                mt: 2,
+                mb: 1,
+                alignSelf: "flex-start",
+                "& .MuiAvatar-circular": {
+                  width: 28,
+                  height: 28,
+                  border: 3,
+                  borderColor: "#FFF",
+                  backgroundColor: (theme.vars || theme).palette.grey[100],
+                  color: (theme.vars || theme).palette.grey[800],
+                  fontSize: theme.typography.pxToRem(13),
+                  fontWeight: 500,
+                },
+              }),
+            ({ theme }) =>
               theme.applyDarkStyles({
                 "& .MuiAvatar-circular": {
                   borderColor: (theme.vars || theme).palette.primaryDark[800],
@@ -201,8 +210,8 @@ function PostPreview(props: BlogPost) {
                     .primaryDark[700],
                   color: (theme.vars || theme).palette.primaryDark[100],
                 },
-              }),
-          ]}
+              })
+          )}
         >
           {(props.authors as Array<keyof typeof AUTHORS>).map((author) => (
             <Avatar
@@ -225,7 +234,7 @@ function PostPreview(props: BlogPost) {
       >
         <Box sx={{ position: "relative" }}>
           {props.authors && (
-            <Typography variant="body2" fontWeight="500">
+            <Typography variant="body2" className={css({ fontWeight: 500 })}>
               {props.authors
                 .slice(0, 3)
                 .map((userId) => {
@@ -246,7 +255,7 @@ function PostPreview(props: BlogPost) {
           {props.date && (
             <Typography
               variant="caption"
-              fontWeight="400"
+              className={css({ fontWeight: 400 })}
               color="text.secondary"
             >
               {new Date(props.date).toDateString()}
@@ -259,7 +268,7 @@ function PostPreview(props: BlogPost) {
           href={`/blog/${props.slug}`}
           id={`describe-${props.slug}`}
           endIcon={<KeyboardArrowRightRoundedIcon />}
-          sx={(theme) => ({
+          className={css(({ theme }) => ({
             mt: { xs: 1, md: 0 },
             mb: { xs: -1, md: 0 },
             color: (theme.vars || theme).palette.primary[600],
@@ -269,7 +278,7 @@ function PostPreview(props: BlogPost) {
             ...theme.applyDarkStyles({
               color: (theme.vars || theme).palette.primary[300],
             }),
-          })}
+          }))}
         >
           Read more
         </Button>
@@ -291,8 +300,6 @@ export default function Blog(
   >({});
   const { allBlogPosts, tagInfo: rawTagInfo } = props;
   const [firstPost, secondPost, ...otherPosts] = allBlogPosts;
-  console.log(firstPost);
-  console.log(secondPost);
   const tagInfo = { ...rawTagInfo };
   [firstPost, secondPost].forEach((post) => {
     post.tags.forEach((tag) => {
@@ -357,8 +364,8 @@ export default function Blog(
       /> */}
       {/* <AppHeader /> */}
       <main id="main-content">
-        <Box
-          sx={(theme) => ({
+        <div
+          className={css(({ theme }) => ({
             background: `linear-gradient(180deg, #FFF 50%,
           ${(theme.vars || theme).palette.primary[50]} 100%)
         `,
@@ -369,23 +376,31 @@ export default function Blog(
           ${alpha(theme.palette.primary[800], 0.2)} 100%)
           `,
             }),
-          })}
+          }))}
         >
           <Section bg="transparent" cozy>
             <Typography
               variant="body2"
-              color="primary.main"
-              fontWeight="bold"
-              textAlign="center"
               gutterBottom
+              className={css(({ theme }) =>
+                theme.unstable_sx({
+                  color: "primary.main",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                })
+              )}
             >
               Blog
             </Typography>
             <Typography
               component="h1"
               variant="h2"
-              textAlign="center"
-              sx={{ mb: { xs: 5, md: 10 } }}
+              className={css(({ theme }) =>
+                theme.unstable_sx({
+                  mb: { xs: 5, md: 10 },
+                  textAlign: "center",
+                })
+              )}
             >
               The <GradientText>latest</GradientText> about MUI
             </Typography>
@@ -404,31 +419,34 @@ export default function Blog(
                   key={post.slug}
                   component="li"
                   variant="outlined"
-                  sx={[
-                    {
-                      p: 2,
-                      display: "flex",
-                      flexDirection: "column",
-                      position: "relative",
-                      transition: "all ease 120ms",
-                      "&:hover, &:focus-within": {
-                        borderColor: "grey.300",
-                        boxShadow: "0px 4px 20px rgba(170, 180, 190, 0.3)",
-                      },
-                      "&:focus-within": {
-                        "& a": {
-                          outline: 0,
-                        },
-                      },
-                    },
-                    (theme) =>
-                      theme.applyDarkStyles({
+                  className={css(
+                    ({ theme }) =>
+                      theme.unstable_sx({
+                        p: 2,
+                        display: "flex",
+                        flexDirection: "column",
+                        position: "relative",
+                        transition: "all ease 120ms",
                         "&:hover, &:focus-within": {
-                          borderColor: "primary.600",
-                          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
+                          borderColor: "grey.300",
+                          boxShadow: "0px 4px 20px rgba(170, 180, 190, 0.3)",
+                        },
+                        "&:focus-within": {
+                          "& a": {
+                            outline: 0,
+                          },
                         },
                       }),
-                  ]}
+                    ({ theme }) =>
+                      theme.unstable_sx(
+                        theme.applyDarkStyles({
+                          "&:hover, &:focus-within": {
+                            borderColor: "grey.600",
+                            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
+                          },
+                        })
+                      )
+                  )}
                 >
                   {post.image && (
                     <Box
@@ -448,7 +466,7 @@ export default function Blog(
               ))}
             </Box>
           </Section>
-        </Box>
+        </div>
         <Divider />
         <Container
           ref={postListRef}
@@ -464,7 +482,9 @@ export default function Blog(
             component="h2"
             variant="h6"
             fontWeight="700"
-            sx={{ mb: { xs: 1, sm: 2 }, mt: 8 }} // margin-top makes the title appear when scroll into view
+            className={css(({ theme }) =>
+              theme.unstable_sx({ mb: { xs: 1, sm: 2 }, mt: 8 })
+            )} // margin-top makes the title appear when scroll into view
           >
             Posts{" "}
             {Object.keys(selectedTags).length ? (
@@ -504,8 +524,9 @@ export default function Blog(
             >
               <Typography
                 color="text.primary"
-                fontWeight="semiBold"
-                sx={{ mb: 2 }}
+                className={css(({ theme }) =>
+                  theme.unstable_sx({ mb: 2, fontWeight: "semiBold" })
+                )}
               >
                 Filter by tag
               </Typography>
@@ -542,22 +563,32 @@ export default function Blog(
                             },
                           })}
                       size="small"
-                      sx={{
-                        py: 1.2,
-                      }}
+                      className={css(({ theme }) =>
+                        theme.unstable_sx({
+                          py: 1.2,
+                        })
+                      )}
                     />
                   );
                 })}
               </Box>
-              <Divider sx={{ mt: 3, mb: 2 }} />
+              <Divider
+                className={css(({ theme }) =>
+                  theme.unstable_sx({ mt: 3, mb: 2 })
+                )}
+              />
               <Typography
                 color="text.primary"
                 fontWeight="semiBold"
-                sx={{ mb: 1 }}
+                className={css(({ theme }) => theme.unstable_sx({ mb: 1 }))}
               >
                 Want to hear more from us?
               </Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                className={css(({ theme }) => theme.unstable_sx({ mb: 2 }))}
+              >
                 Stay on the loop about everything MUI-related through our social
                 media:
               </Typography>
@@ -641,7 +672,9 @@ export default function Blog(
                 setPage(value - 1);
                 postListRef.current?.scrollIntoView();
               }}
-              sx={{ mt: 1, mb: 8 }}
+              className={css(({ theme }) =>
+                theme.unstable_sx({ mt: 1, mb: 8 })
+              )}
             />
           </div>
         </Container>
